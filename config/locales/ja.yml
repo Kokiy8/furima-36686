@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用のパスワード
+        last_name: 苗字
+        first_name: 名前
+        ruby_last_name: 苗字(カナ)
+        ruby_first_name: 名前(カナ)
+        dob: 生年月日

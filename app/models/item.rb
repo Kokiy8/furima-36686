@@ -7,4 +7,7 @@ class Item < ApplicationRecord
   belongs_to :prefectures
 
   has_one_attached :image
+
+  validates :item_name, :description, presence: true
+  validates :category_id, :condition_id, :delivery_charge_id, :days_to_id, :prefectures_id, numericality: {other_than: 1 }
 end

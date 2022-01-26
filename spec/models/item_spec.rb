@@ -38,7 +38,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include '配送料の負担は1以外の値にしてください'
       end
       it '発送元の地域の一覧は１以外を選択していないと出品できない' do
-        @item.prefectures_id = '1'
+        @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include '発送元の地域は1以外の値にしてください'
       end

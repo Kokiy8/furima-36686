@@ -6,7 +6,7 @@ FactoryBot.define do
     condition_id       { '2' }
     delivery_charge_id { '2' }
     days_to_id         { '2' }
-    prefectures_id     { '2' }
+    prefecture_id      { '2' }
     price              { '300' }
     association :user
 

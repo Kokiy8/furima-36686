@@ -77,6 +77,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include '商品画像を入力してください'
       end
+      it 'userが紐付いていなければ出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'ユーザーを入力してください'
+      end
     end
   end
 end

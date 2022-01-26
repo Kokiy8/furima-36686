@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :items
 
   validates :nickname, :last_name, :first_name, :ruby_last_name, :ruby_first_name, :dob, presence: true

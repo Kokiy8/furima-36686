@@ -72,6 +72,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include '販売価格は一覧にありません'
       end
+      it '販売価格に少数が含まれると出品できない' do
+        @item.price = '1000.1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include 
+      end
       it '商品画像が空だと出品できない' do
         @item.image = nil
         @item.valid?

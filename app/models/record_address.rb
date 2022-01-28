@@ -12,7 +12,7 @@ class RecordAddress
   validates :prefecture_id, numericality: { other_than: 1 }
 
   def save
-    record = Record.create(item_id: item_id, user_id: user_id)
-    Address.create(post_code: post_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building_name: building_name, telephone_number: telephone_number, record_id: record.id)
+    record = Record.create!(item_id: item_id, user_id: user_id)
+    Address.create!(post_code: post_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building_name: building_name, telephone_number: telephone_number, record_id: record.id)
   end
 end

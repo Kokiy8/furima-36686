@@ -1,11 +1,13 @@
 FactoryBot.define do
-  factory :address do
+  factory :record_address do
     post_code        { '123-4567' }
     prefecture_id    { '2' }
     municipalities   { 'test' }
     address          { 'test' }
-    building_name    { '' }
+    building_name    { 'test' }
     telephone_number {12345678900}
-    association :record, factory: :record 
+    user_id { '1' }
+    item_id { '1' }
+
   end
 end

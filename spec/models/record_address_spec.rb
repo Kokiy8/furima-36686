@@ -10,7 +10,7 @@ RSpec.describe RecordAddress, type: :model do
       it '全ての項目が入力されていれば購入できる' do
         expect(@record_address).to be_valid
       end
-      it '建物名が空でも登録できる' do
+      it '建物名が空でも購入できる' do
         @record_address.building_name = ''
         expect(@record_address).to be_valid
       end
@@ -80,6 +80,12 @@ RSpec.describe RecordAddress, type: :model do
         @record_address.telephone_number = '１234567890'
         @record_address.valid?
         expect(@record_address.errors.full_messages).to include "Telephone numberは不正な値です"
+      end
+      it "トークンが空では購入できない" do
+        @record_address.token = nil
+        @record_address.valid?
+        binding.pry
+        expect(@record_address.errors.full_messages).to include "Tokenを入力してください"
       end
     end
   end

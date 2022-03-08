@@ -5,9 +5,9 @@ FactoryBot.define do
     municipalities   { 'test' }
     address          { 'test' }
     building_name    { 'test' }
-    telephone_number {12345678900}
+    telephone_number { 12_345_678_900 }
     user_id { '1' }
     item_id { '1' }
-    token {"tok_abcdefghijk00000000000000000"}
+    token { 'tok_abcdefghijk00000000000000000' }
   end
 end

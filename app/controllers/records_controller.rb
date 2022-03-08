@@ -26,11 +26,13 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record_address).permit(:post_code, :prefecture_id, :municipalities, :address, :building_name, :telephone_number).merge(token: params[:token], user_id: current_user.id, item_id: @item.id)
+    params.require(:record_address).permit(:post_code, :prefecture_id, :municipalities, :address, :building_name, :telephone_number).merge(
+      token: params[:token], user_id: current_user.id, item_id: @item.id
+    )
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_96546c56acdba22cecba289e"
+    Payjp.api_key = 'sk_test_96546c56acdba22cecba289e'
     Payjp::Charge.create(
       amount: @item.price,
       card: record_params[:token],

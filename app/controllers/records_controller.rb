@@ -6,7 +6,7 @@ class RecordsController < ApplicationController
     @record_address = RecordAddress.new
     if current_user == @item.user
       redirect_to root_path
-    else @item.record.present?
+    elsif @item.record.present?
       redirect_to root_path
     end
   end

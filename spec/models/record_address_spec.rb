@@ -84,7 +84,6 @@ RSpec.describe RecordAddress, type: :model do
       it "トークンが空では購入できない" do
         @record_address.token = nil
         @record_address.valid?
-        binding.pry
         expect(@record_address.errors.full_messages).to include "Tokenを入力してください"
       end
     end

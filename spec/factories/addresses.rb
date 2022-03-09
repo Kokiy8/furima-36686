@@ -5,7 +5,7 @@ FactoryBot.define do
     municipalities   { 'test' }
     address          { 'test' }
     building_name    { '' }
-    telephone_number { 12_345_678_900 }
-    association :record, factory: :record
+    telephone_number { '12345678900' }
+    association :user
   end
 end

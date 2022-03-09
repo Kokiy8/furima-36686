@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe RecordAddress, type: :model do
   before do
-    @record_address = FactoryBot.build(:record_address)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @record_address = FactoryBot.build(:record_address, user_id: user.id, item_id: item.id)
+    sleep(0.1)
   end
 
   describe  '商品の購入' do
@@ -85,6 +88,16 @@ RSpec.describe RecordAddress, type: :model do
         @record_address.token = nil
         @record_address.valid?
         expect(@record_address.errors.full_messages).to include 'Tokenを入力してください'
+      end
+      it 'userが紐付いていなければ購入できない' do
+        @record_address.user_id = nil
+        @record_address.valid?
+        expect(@record_address.errors.full_messages).to include 'Userを入力してください'
+      end
+      it 'itemが紐付いていなければ購入できない' do
+        @record_address.item_id = nil
+        @record_address.valid?
+        expect(@record_address.errors.full_messages).to include 'Itemを入力してください'
       end
     end
   end

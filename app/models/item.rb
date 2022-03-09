@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :user
 
+  has_one :record
   has_one_attached :image
 
   validates :item_name, :description, :category_id, :condition_id, :delivery_charge_id, :days_to_id, :prefecture_id, :price,
